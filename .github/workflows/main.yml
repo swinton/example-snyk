@@ -4,28 +4,12 @@ on:
   workflow_dispatch
 
 jobs:
-  feat:
-    name: feat
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
-    steps:
-    - name: Setup Snyk
-      uses: snyk/actions/setup@d8f656ed88025ca3bacdfb5d2d1363dd8943832f
-    - run: |
-        which snyk
-        snyk --help
   main:
     name: main
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
     - name: Setup Snyk
       uses: snyk/actions/setup@master
     - run: |
         which snyk
         snyk --help
-  
